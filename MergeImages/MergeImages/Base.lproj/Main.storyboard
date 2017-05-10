@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MergeImages" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1tc-xa-Bop">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lap-9b-oGy">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jco-Lq-C52">
+                                <rect key="frame" x="30" y="527" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="XLv-gJ-6Zn"/>
+                                    <constraint firstAttribute="height" constant="100" id="iPW-rE-Reu"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FUB-k1-Rr3">
+                                <rect key="frame" x="137" y="627" width="100" height="30"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="KwQ-cq-UQZ"/>
+                                    <constraint firstAttribute="height" constant="30" id="a9a-p0-v7G"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <state key="normal" title="Merge"/>
+                                <connections>
+                                    <action selector="actionMerge:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WSQ-vz-2b6"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="1tc-xa-Bop" secondAttribute="trailing" id="2Cq-MB-LVk"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="FUB-k1-Rr3" secondAttribute="bottom" constant="10" id="59c-y9-bkf"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="jco-Lq-C52" secondAttribute="bottom" constant="40" id="B1W-to-Q6o"/>
+                            <constraint firstAttribute="trailing" secondItem="lap-9b-oGy" secondAttribute="trailing" id="GxC-VO-hmg"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="1tc-xa-Bop" secondAttribute="bottom" id="Iw6-2d-zdK"/>
+                            <constraint firstItem="jco-Lq-C52" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="30" id="LEP-Aa-EsR"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="lap-9b-oGy" secondAttribute="bottom" id="NiM-e8-Siu"/>
+                            <constraint firstItem="1tc-xa-Bop" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Wb1-r1-Bb7"/>
+                            <constraint firstItem="lap-9b-oGy" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Xki-XF-5tB"/>
+                            <constraint firstItem="1tc-xa-Bop" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="YXK-wb-QMv"/>
+                            <constraint firstItem="FUB-k1-Rr3" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="hKv-9R-9A0"/>
+                            <constraint firstItem="lap-9b-oGy" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="i1B-Fa-HJf"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="btnMerge" destination="FUB-k1-Rr3" id="Lrg-fU-Ngr"/>
+                        <outlet property="imgBackground" destination="lap-9b-oGy" id="yl7-qW-LiG"/>
+                        <outlet property="imgForeground" destination="jco-Lq-C52" id="4dJ-da-kih"/>
+                        <outlet property="imgPreview" destination="1tc-xa-Bop" id="kNG-at-eOp"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-148" y="129.98500749625188"/>
+        </scene>
+    </scenes>
+</document>
