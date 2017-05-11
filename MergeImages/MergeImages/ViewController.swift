@@ -41,8 +41,8 @@ class ViewController: UIViewController {
     }
     
     func setupDocumentImages() -> Void {
-        imgBackground.image = UIImage.init(named: "sample.png")
-        imgForeground.image = UIImage.init(named: "sign.png")
+        imgBackground.image = UIImage.init(named: "sample-3.png")
+        imgForeground.image = UIImage.init(named: "sign-5.png")
     }
     
     func setDocumentImagesContentMode() -> Void {
