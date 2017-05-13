@@ -41,8 +41,8 @@ class ViewController: UIViewController {
     }
     
     func setupDocumentImages() -> Void {
-        imgBackground.image = UIImage.init(named: "sample-3.png")
-        imgForeground.image = UIImage.init(named: "sign-5.png")
+        imgBackground.image = UIImage.init(named: "sample-2.png")
+        imgForeground.image = UIImage.init(named: "sign.png")
     }
     
     func setDocumentImagesContentMode() -> Void {
@@ -66,8 +66,6 @@ class ViewController: UIViewController {
         let translation = rec.translation(in: self.view)
         rec.view!.center = CGPoint(x: rec.view!.center.x + translation.x, y: rec.view!.center.y + translation.y)
         rec.setTranslation(CGPoint.zero, in: self.view)
-        
-        //print("\nNew Location of Signature View: \(NSStringFromCGPoint(rec.view!.frame.origin))")
     }
     
     func calculateOriginForForegroundImage() -> CGPoint {
@@ -86,8 +84,6 @@ class ViewController: UIViewController {
         let nX:Int = fX
         let nY:Int = fY
         
-//        let v = UIView.init(frame: CGRect.init(x: 0, y: 0, width: bWidth, height: bHeight))
-        
         print("\nBackground Size [Width:\(bWidth) Height:\(bHeight)]")
         print("\nForeground Origin [X:\(fX) Y:\(fY)]")
         print("\nForeground Size [Width:\(fWidth) Height:\(fHeight)]")
@@ -103,8 +99,6 @@ class ViewController: UIViewController {
             return
         }
         
-        //let previewImage:UIImage? = mixImagesWith(frontImage: imgForeground.image!, backgroundImage: imgBackground.image!, atPoint: calculateOriginForForegroundImage(), ofSize: CGSize.init(width: 100, height: 100))
-        
         let point: CGPoint = calculateOriginForForegroundImage()
         let previewImage:UIImage? = mergeImages(img: imgBackground.image!, sizeWaterMark: CGRect.init(x: point.x, y: point.y, width: 100, height: 100), waterMarkImage: imgForeground.image!)
         
@@ -119,20 +113,12 @@ class ViewController: UIViewController {
         showPreview()
     }
     
-    func mixImagesWith(frontImage:UIImage?, backgroundImage: UIImage?, atPoint point:CGPoint, ofSize signatureSize:CGSize) -> UIImage {
-        let size = self.imgBackground.frame.size
-        UIGraphicsBeginImageContextWithOptions(size, false, UIScreen.main.scale)
-        backgroundImage?.draw(in: CGRect.init(x: 0, y: 0, width: size.width, height: size.height))
-        frontImage?.draw(in: CGRect.init(x: point.x, y: point.y, width: signatureSize.width, height: signatureSize.height))
-        let newImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()!
-        UIGraphicsEndImageContext()
-        return newImage
-    }
-    
+    //Answer by Michael (Mixel on SO) help to solve this issue. Thanks to him.
+    //http://stackoverflow.com/a/43943956/1603234
     func mergeImages(img:UIImage, sizeWaterMark:CGRect, waterMarkImage:UIImage) -> UIImage {
         let size = self.imgBackground.frame.size
         UIGraphicsBeginImageContextWithOptions(size, false, UIScreen.main.scale)
-        img.draw(in: CGRect(x: 0, y: 0, width: size.width, height: size.height))
+        img.draw(in: getAspectFitFrame(sizeImgView: size, sizeImage: img.size))
         let frameAspect:CGRect = getAspectFitFrame(sizeImgView: sizeWaterMark.size, sizeImage: waterMarkImage.size)
         let frameOrig:CGRect = CGRect(x: sizeWaterMark.origin.x+frameAspect.origin.x, y: sizeWaterMark.origin.y+frameAspect.origin.y, width: frameAspect.size.width, height: frameAspect.size.height)
         waterMarkImage.draw(in: frameOrig, blendMode: .normal, alpha: 1)
@@ -158,15 +144,19 @@ class ViewController: UIViewController {
         
         var x:CGFloat = 0.0
         var y:CGFloat = 0.0
-        if newWidth > newHeight{
-            y = (sizeImgView.height - newHeight)/2
+        
+        if hfactor > vfactor {
+            y = (sizeImgView.height - newHeight) / 2
+        } else {
+            x = (sizeImgView.width - newWidth) / 2
         }
-        if newHeight > newWidth{
-            x = (sizeImgView.width - newWidth)/2
-        }
+//        if newWidth > newHeight{
+//            y = (sizeImgView.height - newHeight)/2
+//        }
+//        if newHeight > newWidth{
+//            x = (sizeImgView.width - newWidth)/2
+//        }
         let newRect:CGRect = CGRect(x: x, y: y, width: newWidth, height: newHeight)
-        
         return newRect
-        
     }
 }
