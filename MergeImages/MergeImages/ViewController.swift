@@ -72,22 +72,14 @@ class ViewController: UIViewController {
         let sizeOfBackground = imgBackground.image!.size
         let bWidth:Int = Int(sizeOfBackground.width)
         let bHeight:Int = Int(sizeOfBackground.height)
+        print("\nBackground Size [Width:\(bWidth) Height:\(bHeight)]")
         
         let originOfForeground = imgForeground.frame.origin
         let fX:Int = Int(originOfForeground.x)
         let fY:Int = Int(originOfForeground.y)
         
-        let sizeOfForeground = imgForeground.frame.size
-        let fWidth:Int = Int(sizeOfForeground.width)
-        let fHeight:Int = Int(sizeOfForeground.height)
-        
         let nX:Int = fX
         let nY:Int = fY
-        
-        print("\nBackground Size [Width:\(bWidth) Height:\(bHeight)]")
-        print("\nForeground Origin [X:\(fX) Y:\(fY)]")
-        print("\nForeground Size [Width:\(fWidth) Height:\(fHeight)]")
-        print("\nNew Origin [X:\(nX) Y:\(nY)]")
 
         return CGPoint.init(x: nX, y: nY)
     }
@@ -150,12 +142,6 @@ class ViewController: UIViewController {
         } else {
             x = (sizeImgView.width - newWidth) / 2
         }
-//        if newWidth > newHeight{
-//            y = (sizeImgView.height - newHeight)/2
-//        }
-//        if newHeight > newWidth{
-//            x = (sizeImgView.width - newWidth)/2
-//        }
         let newRect:CGRect = CGRect(x: x, y: y, width: newWidth, height: newHeight)
         return newRect
     }
