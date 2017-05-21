@@ -41,8 +41,8 @@ class ViewController: UIViewController {
     }
     
     func setupDocumentImages() -> Void {
-        imgBackground.image = UIImage.init(named: "sample-2.png")
-        imgForeground.image = UIImage.init(named: "sign.png")
+        imgBackground.image = UIImage.init(named: "sample.png")
+        imgForeground.image = UIImage.init(named: "sign-5.png")
     }
     
     func setDocumentImagesContentMode() -> Void {
@@ -68,37 +68,19 @@ class ViewController: UIViewController {
         rec.setTranslation(CGPoint.zero, in: self.view)
     }
     
-    func calculateOriginForForegroundImage() -> CGPoint {
-        let sizeOfBackground = imgBackground.image!.size
-        let bWidth:Int = Int(sizeOfBackground.width)
-        let bHeight:Int = Int(sizeOfBackground.height)
-        print("\nBackground Size [Width:\(bWidth) Height:\(bHeight)]")
-        
-        let originOfForeground = imgForeground.frame.origin
-        let fX:Int = Int(originOfForeground.x)
-        let fY:Int = Int(originOfForeground.y)
-        
-        let nX:Int = fX
-        let nY:Int = fY
-
-        return CGPoint.init(x: nX, y: nY)
-    }
-    
     @IBAction func actionMerge(_ sender: UIButton) {
         
         guard sender.title(for: .normal) == "Merge" else {
             showDocument()
             return
         }
-        
-        let point: CGPoint = calculateOriginForForegroundImage()
-        let previewImage:UIImage? = mergeImages(img: imgBackground.image!, sizeWaterMark: CGRect.init(x: point.x, y: point.y, width: 100, height: 100), waterMarkImage: imgForeground.image!)
-        
-        print(previewImage!)
+        let previewImage:UIImage? = mergeImages(img: imgBackground.image!, sizeWaterMark: CGRect.init(origin: imgForeground.frame.origin, size: CGSize.init(width: 100, height: 100)), waterMarkImage: imgForeground.image!)
         
         guard previewImage != nil else {
             return
         }
+        
+        print("New Image: \(String(describing: previewImage))")
         
         imgPreview.image = previewImage
         setPreviewImageContentMode()
