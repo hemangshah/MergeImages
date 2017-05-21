@@ -2,4 +2,4 @@ This Git is created to solve the problem of merging two UIImages while keeping t
 
 Here is the question.
 
-http://stackoverflow.com/questions/43891564/how-to-merge-two-uiimages-while-keeping-the-aspect-ratio-and-size
+http://stackoverflow.com/questions/44095532/how-to-merge-two-uiimages-while-keeping-their-position-size-and-aspect-ratios
