@@ -14,6 +14,7 @@
 		F12B1F1C1EC438DE006D33F0 /* sample-2.png in Resources */ = {isa = PBXBuildFile; fileRef = F12B1F1A1EC438DE006D33F0 /* sample-2.png */; };
 		F12B1F1D1EC438DE006D33F0 /* sample-4.png in Resources */ = {isa = PBXBuildFile; fileRef = F12B1F1B1EC438DE006D33F0 /* sample-4.png */; };
 		F12B1F1F1EC43A3F006D33F0 /* sign-5.png in Resources */ = {isa = PBXBuildFile; fileRef = F12B1F1E1EC43A3F006D33F0 /* sign-5.png */; };
+		F19C66461ED29BAE0064BDB6 /* ImageUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19C66451ED29BAE0064BDB6 /* ImageUtility.swift */; };
 		F1CF21681EC2E54500F31653 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CF21671EC2E54500F31653 /* AppDelegate.swift */; };
 		F1CF216A1EC2E54500F31653 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CF21691EC2E54500F31653 /* ViewController.swift */; };
 		F1CF216D1EC2E54500F31653 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1CF216B1EC2E54500F31653 /* Main.storyboard */; };
@@ -31,6 +32,7 @@
 		F12B1F1A1EC438DE006D33F0 /* sample-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sample-2.png"; sourceTree = "<group>"; };
 		F12B1F1B1EC438DE006D33F0 /* sample-4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sample-4.png"; sourceTree = "<group>"; };
 		F12B1F1E1EC43A3F006D33F0 /* sign-5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sign-5.png"; sourceTree = "<group>"; };
+		F19C66451ED29BAE0064BDB6 /* ImageUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageUtility.swift; sourceTree = "<group>"; };
 		F1CF21641EC2E54500F31653 /* MergeImages.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MergeImages.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1CF21671EC2E54500F31653 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F1CF21691EC2E54500F31653 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -81,6 +83,7 @@
 				F12B1F101EC432FE006D33F0 /* sign-4.png */,
 				F1CF21791EC2E61D00F31653 /* sample.png */,
 				F1CF217A1EC2E61D00F31653 /* sign.png */,
+				F19C66451ED29BAE0064BDB6 /* ImageUtility.swift */,
 				F1CF21671EC2E54500F31653 /* AppDelegate.swift */,
 				F1CF21691EC2E54500F31653 /* ViewController.swift */,
 				F1CF216B1EC2E54500F31653 /* Main.storyboard */,
@@ -123,6 +126,7 @@
 				TargetAttributes = {
 					F1CF21631EC2E54500F31653 = {
 						CreatedOnToolsVersion = 8.3;
+						DevelopmentTeam = 777UDHV8U7;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -174,6 +178,7 @@
 			files = (
 				F1CF216A1EC2E54500F31653 /* ViewController.swift in Sources */,
 				F1CF21681EC2E54500F31653 /* AppDelegate.swift in Sources */,
+				F19C66461ED29BAE0064BDB6 /* ImageUtility.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,6 +301,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 777UDHV8U7;
 				INFOPLIST_FILE = MergeImages/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -309,6 +315,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 777UDHV8U7;
 				INFOPLIST_FILE = MergeImages/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

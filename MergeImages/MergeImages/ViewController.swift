@@ -41,8 +41,8 @@ class ViewController: UIViewController {
     }
     
     func setupDocumentImages() -> Void {
-        imgBackground.image = UIImage.init(named: "sample.png")
-        imgForeground.image = UIImage.init(named: "sign-5.png")
+        imgBackground.image = UIImage.init(named: "sample-4.png")
+        imgForeground.image = UIImage.init(named: "sign-2.png")
     }
     
     func setDocumentImagesContentMode() -> Void {
@@ -74,57 +74,15 @@ class ViewController: UIViewController {
             showDocument()
             return
         }
-        let previewImage:UIImage? = mergeImages(img: imgBackground.image!, sizeWaterMark: CGRect.init(origin: imgForeground.frame.origin, size: CGSize.init(width: 100, height: 100)), waterMarkImage: imgForeground.image!)
         
-        guard previewImage != nil else {
-            return
-        }
+        let previewImage = ViewController.mergeImages(img: imgBackground.image!, sizeWaterMark: ViewController.getScaledFrame(from: imgBackground.frame.size, to: imgBackground.image!.size, target: imgForeground.frame),
+            waterMarkImage: imgForeground.image!
+        )
         
         print("New Image: \(String(describing: previewImage))")
         
         imgPreview.image = previewImage
         setPreviewImageContentMode()
         showPreview()
-    }
-    
-    //Answer by Michael (Mixel on SO) help to solve this issue. Thanks to him.
-    //http://stackoverflow.com/a/43943956/1603234
-    func mergeImages(img:UIImage, sizeWaterMark:CGRect, waterMarkImage:UIImage) -> UIImage {
-        let size = self.imgBackground.frame.size
-        UIGraphicsBeginImageContextWithOptions(size, false, UIScreen.main.scale)
-        img.draw(in: getAspectFitFrame(sizeImgView: size, sizeImage: img.size))
-        let frameAspect:CGRect = getAspectFitFrame(sizeImgView: sizeWaterMark.size, sizeImage: waterMarkImage.size)
-        let frameOrig:CGRect = CGRect(x: sizeWaterMark.origin.x+frameAspect.origin.x, y: sizeWaterMark.origin.y+frameAspect.origin.y, width: frameAspect.size.width, height: frameAspect.size.height)
-        waterMarkImage.draw(in: frameOrig, blendMode: .normal, alpha: 1)
-        let result:UIImage = UIGraphicsGetImageFromCurrentImageContext()!
-        UIGraphicsEndImageContext()
-        return result
-    }
-    
-    //MARK - Get Aspect Fit frame of UIImage
-    func getAspectFitFrame(sizeImgView:CGSize, sizeImage:CGSize) -> CGRect {
-        
-        let imageSize:CGSize  = sizeImage
-        let viewSize:CGSize = sizeImgView
-        
-        let hfactor : CGFloat = imageSize.width/viewSize.width
-        let vfactor : CGFloat = imageSize.height/viewSize.height
-        
-        let factor : CGFloat = max(hfactor, vfactor)
-        
-        // Divide the size by the greater of the vertical or horizontal shrinkage factor
-        let newWidth : CGFloat = imageSize.width / factor
-        let newHeight : CGFloat = imageSize.height / factor
-        
-        var x:CGFloat = 0.0
-        var y:CGFloat = 0.0
-        
-        if hfactor > vfactor {
-            y = (sizeImgView.height - newHeight) / 2
-        } else {
-            x = (sizeImgView.width - newWidth) / 2
-        }
-        let newRect:CGRect = CGRect(x: x, y: y, width: newWidth, height: newHeight)
-        return newRect
     }
 }
